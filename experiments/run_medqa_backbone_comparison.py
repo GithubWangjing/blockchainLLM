@@ -40,6 +40,7 @@ MODEL_SPECS = [
     ("Qwen/Qwen2.5-1.5B-Instruct", "1.5B"),
     ("Qwen/Qwen2.5-3B-Instruct", "3B"),
     ("Qwen/Qwen2.5-7B-Instruct", "7B"),
+    ("Qwen/Qwen2.5-14B-Instruct", "14B"),
 ]
 
 EXTERNAL_MODEL_ROOT = Path(os.environ.get("MEDCHAIN_MODEL_ROOT", "F:/MedChainLLM_models"))
@@ -56,6 +57,10 @@ LOCAL_MODEL_DIRS = {
     "Qwen/Qwen2.5-7B-Instruct": [
         PROJECT_ROOT / "models" / "Qwen2.5-7B-Instruct",
         EXTERNAL_MODEL_ROOT / "Qwen2.5-7B-Instruct",
+    ],
+    "Qwen/Qwen2.5-14B-Instruct": [
+        PROJECT_ROOT / "models" / "Qwen2.5-14B-Instruct",
+        EXTERNAL_MODEL_ROOT / "Qwen2.5-14B-Instruct",
     ],
 }
 

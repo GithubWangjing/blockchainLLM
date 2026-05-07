@@ -44,3 +44,23 @@ Or use:
 ```bash
 bash scripts/server_run_reviewer5.sh 50
 ```
+
+## Optional Larger Backbones
+
+Run these only on a GPU server:
+
+```bash
+bash scripts/server_run_large_backbones.sh 50 Qwen/Qwen2.5-7B-Instruct
+```
+
+For a larger subset:
+
+```bash
+bash scripts/server_run_large_backbones.sh 200 \
+  Qwen/Qwen2.5-7B-Instruct \
+  Qwen/Qwen2.5-14B-Instruct
+```
+
+The script downloads the requested models, runs real MedQA inference, merges
+the new completed backbones with existing results, and regenerates figures,
+tables, and Reviewer 5 reports.

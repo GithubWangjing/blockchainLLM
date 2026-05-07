@@ -193,6 +193,41 @@ bash scripts/server_run_reviewer5.sh 50
 
 The argument is `max_questions`. For example, use `200` for a larger subset.
 
+## Optional Larger Backbones
+
+Use a GPU server for 7B or 14B models. These are not part of the minimum-cost
+pipeline and should only be added to manuscript tables after real inference
+completes.
+
+Run 7B on the same 50-question subset and merge it with existing completed
+0.5B/1.5B/3B results:
+
+```bash
+bash scripts/server_run_large_backbones.sh 50 Qwen/Qwen2.5-7B-Instruct
+```
+
+Run 7B and 14B on a 200-question subset:
+
+```bash
+bash scripts/server_run_large_backbones.sh 200 \
+  Qwen/Qwen2.5-7B-Instruct \
+  Qwen/Qwen2.5-14B-Instruct
+```
+
+Equivalent manual command after downloading the models:
+
+```bash
+python -m experiments.run_medqa_backbone_comparison \
+  --seed 7 \
+  --max-questions 200 \
+  --models Qwen/Qwen2.5-7B-Instruct Qwen/Qwen2.5-14B-Instruct \
+  --merge-existing \
+  --cpu-dtype float16
+python -m experiments.run_medqa_error_analysis --seed 7
+python -m experiments.run_backbone_cost_scalability --seed 7
+python -m experiments.generate_reviewer5_reports --seed 7
+```
+
 ## Notes on Secrets and Large Files
 
 The repository excludes:
