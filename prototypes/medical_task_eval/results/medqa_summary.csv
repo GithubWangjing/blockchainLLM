@@ -1,0 +1,2 @@
+model,device,num_questions,accuracy,avg_latency_ms,p95_latency_ms
+Qwen/Qwen2.5-0.5B,cpu,100,0.25,2178.316800998291,3557.2431899840008

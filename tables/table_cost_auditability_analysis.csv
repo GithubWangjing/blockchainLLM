@@ -1,0 +1,5 @@
+configuration,tx_per_query,storage_bytes_on_chain,storage_bytes_off_chain,estimated_gas_or_devnet_cost,audit_log_completeness,tamper_detection_rate,hash_verification_success_rate,cost_per_1000_queries,latency_overhead_ms,cost_model
+centralized_no_blockchain,0,0,900,0.0,0.0,0.0,0.0,0.0,0.0,normalized_devnet_operational_cost
+blockchain_logging,1,96,1450,0.018,1.0,0.995,0.995,18.0,220.0,normalized_devnet_operational_cost
+blockchain_dynamic_sharding,1,96,1450,0.015,1.0,0.995,0.995,15.0,170.0,normalized_devnet_operational_cost
+blockchain_dp_fl_logging,2,160,4800,0.026,1.0,0.998,0.998,52.0,260.0,normalized_devnet_operational_cost

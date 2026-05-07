@@ -1,0 +1,13 @@
+configuration,simulated_hospital_clients,round,aggregation,simulated_accuracy,validation_score,training_time_sec,communication_cost_mb,blockchain_logging_overhead_ms,privacy_budget_epsilon,audit_coverage_rate,update_integrity_check_rate,benchmark_type
+centralized_finetuning_simulated,3,5,centralized,0.6731087830052609,0.6731087830052609,190.0,0.0,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning,3,5,FedAvg,0.6679580912958546,0.6679580912958546,225.0,187.5,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp,3,5,FedAvg,0.6430346692311468,0.6430346692311468,258.74999999999994,187.5,0.0,2.0,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp_blockchain_logging,3,5,FedAvg,0.6301655361302732,0.6301655361302732,258.74999999999994,187.5,152.0,2.0,1.0,1.0,lightweight_federated_simulation
+centralized_finetuning_simulated,5,5,centralized,0.6683182857559444,0.6683182857559444,190.0,0.0,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning,5,5,FedAvg,0.6630846805952963,0.6630846805952963,375.0,312.5,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp,5,5,FedAvg,0.6369432336375458,0.6369432336375458,431.25,312.5,0.0,2.0,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp_blockchain_logging,5,5,FedAvg,0.6431933671587872,0.6431933671587872,431.25,312.5,200.0,2.0,1.0,1.0,lightweight_federated_simulation
+centralized_finetuning_simulated,10,5,centralized,0.6782195186001531,0.6782195186001531,190.0,0.0,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning,10,5,FedAvg,0.6787971803722043,0.6787971803722043,750.0,625.0,0.0,,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp,10,5,FedAvg,0.6483451474543693,0.6483451474543693,862.5,625.0,0.0,2.0,0.0,0.0,lightweight_federated_simulation
+federated_finetuning_dp_blockchain_logging,10,5,FedAvg,0.6544084665087501,0.6544084665087501,862.5,625.0,320.0,2.0,1.0,1.0,lightweight_federated_simulation

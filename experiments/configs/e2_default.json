@@ -1,0 +1,16 @@
+{
+  "seed": 1337,
+  "simulation": {
+    "base_latency_ms": 140.0,
+    "base_accuracy": 0.945,
+    "verification_overhead_ms": 18.0,
+    "jitter_std_fraction": 0.12,
+    "requests_per_config": 1000
+  },
+  "sweeps": {
+    "pruning_levels": [0.0, 0.3, 0.5],
+    "quantization_modes": ["none", "fp16", "int8"],
+    "edge_nodes": [1, 4, 8, 16]
+  }
+}
+

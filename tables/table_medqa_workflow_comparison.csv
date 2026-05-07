@@ -1,0 +1,4 @@
+workflow,accuracy,mean_latency_ms,p95_latency_ms,blockchain_overhead_ms,audit_coverage_rate,review_flag_rate,error_count,benchmark_type
+qwen_only,0.16666666666666666,2116.7971891008738,2942.8959997415145,0.0,0.0,0.0,25,uses_existing_medqa_accuracy_latency_with_simulated_audit_overhead
+qwen_with_blockchain_logging,0.16666666666666666,2881.7499376942465,3768.777002058668,779.7100192448821,1.0,0.0,25,uses_existing_medqa_accuracy_latency_with_simulated_audit_overhead
+qwen_with_audit_and_human_review_flag,0.16666666666666666,3004.7647105967176,4129.763329008571,871.9621738124879,1.0,0.43333333333333335,25,uses_existing_medqa_accuracy_latency_with_simulated_audit_overhead

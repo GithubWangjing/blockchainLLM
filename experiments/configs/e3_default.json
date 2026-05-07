@@ -1,0 +1,14 @@
+{
+  "seed": 2024,
+  "simulation": {
+    "base_accuracy": 0.910,
+    "base_training_time": 12.0,
+    "alpha_scale": 0.05,
+    "noise_penalty_scale": 0.2,
+    "training_time_jitter": 0.05
+  },
+  "sensitivity_levels": ["low", "medium", "high"],
+  "encryption_strategies": ["aes128", "hybrid", "fhe"],
+  "epsilon_values": [0.1, 0.3, 0.5, 1.0]
+}
+

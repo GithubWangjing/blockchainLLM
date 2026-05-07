@@ -1,0 +1,4 @@
+configuration,mean_latency_ms,median_latency_ms,p95_latency_ms,p99_latency_ms,throughput_qps,audit_coverage_rate,blockchain_overhead_ms,blockchain_overhead_percent,benchmark_type
+centralized_no_blockchain,8670.965551526886,8604.087383706557,11251.459933612721,11845.812011056554,0.11532741008570933,0.0,0.0,0.0,hybrid_existing_benchmark_plus_simulation
+blockchain_logging,9574.811588649214,9378.868062161091,12189.758837846704,12825.889767315573,0.10444069742171053,1.0,903.8460371223282,10.423822257755,hybrid_existing_benchmark_plus_simulation
+blockchain_logging_dynamic_sharding,9493.586044817454,9316.131411160493,12302.11420794719,13609.74494249451,0.10533427466493547,1.0,822.6204932905675,9.487069097462978,hybrid_existing_benchmark_plus_simulation

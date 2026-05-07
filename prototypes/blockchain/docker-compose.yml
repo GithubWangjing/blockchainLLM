@@ -1,0 +1,110 @@
+version: "3.9"
+
+services:
+  asset_builder:
+    image: python:3.11-slim
+    working_dir: /workspace
+    restart: "no"
+    volumes:
+      - ./:/workspace
+    command: >
+      sh -c "pip install --no-cache-dir eth-account eth-keys > /tmp/pip.log && python scripts/generate_assets.py"
+
+  node1:
+    image: ethereum/client-go:v1.13.12
+    container_name: node1
+    depends_on:
+      asset_builder:
+        condition: service_completed_successfully
+    volumes:
+      - ./config:/config
+      - ./data/node1:/data
+      - ./scripts/start_geth.sh:/start_geth.sh
+    command: ["sh", "/start_geth.sh"]
+    environment:
+      IMPORT_ACCOUNT: "true"
+      ENABLE_MINER: "true"
+      HTTP_ENABLED: "true"
+      WS_ENABLED: "true"
+      HTTP_PORT: "8545"
+      WS_PORT: "8546"
+      P2P_PORT: "30303"
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+    networks:
+      devnet:
+        ipv4_address: 172.28.0.11
+
+  node2:
+    image: ethereum/client-go:v1.13.12
+    container_name: node2
+    depends_on:
+      asset_builder:
+        condition: service_completed_successfully
+    volumes:
+      - ./config:/config
+      - ./data/node2:/data
+      - ./scripts/start_geth.sh:/start_geth.sh
+    command: ["sh", "/start_geth.sh"]
+    environment:
+      IMPORT_ACCOUNT: "false"
+      ENABLE_MINER: "false"
+      HTTP_ENABLED: "false"
+      WS_ENABLED: "false"
+      P2P_PORT: "30304"
+    networks:
+      devnet:
+        ipv4_address: 172.28.0.12
+
+  node3:
+    image: ethereum/client-go:v1.13.12
+    container_name: node3
+    depends_on:
+      asset_builder:
+        condition: service_completed_successfully
+    volumes:
+      - ./config:/config
+      - ./data/node3:/data
+      - ./scripts/start_geth.sh:/start_geth.sh
+    command: ["sh", "/start_geth.sh"]
+    environment:
+      IMPORT_ACCOUNT: "false"
+      ENABLE_MINER: "false"
+      HTTP_ENABLED: "false"
+      WS_ENABLED: "false"
+      P2P_PORT: "30305"
+    networks:
+      devnet:
+        ipv4_address: 172.28.0.13
+
+  node4:
+    image: ethereum/client-go:v1.13.12
+    container_name: node4
+    depends_on:
+      asset_builder:
+        condition: service_completed_successfully
+    volumes:
+      - ./config:/config
+      - ./data/node4:/data
+      - ./scripts/start_geth.sh:/start_geth.sh
+    command: ["sh", "/start_geth.sh"]
+    environment:
+      IMPORT_ACCOUNT: "false"
+      ENABLE_MINER: "false"
+      HTTP_ENABLED: "false"
+      WS_ENABLED: "false"
+      P2P_PORT: "30306"
+    networks:
+      devnet:
+        ipv4_address: 172.28.0.14
+
+networks:
+  devnet:
+    name: medchain-devnet
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+

@@ -1,0 +1,13 @@
+{
+  "name": "medchain-llm-blockchain-local",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "node": "hardhat node",
+    "accounts": "hardhat accounts"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.1"
+  }
+}
+

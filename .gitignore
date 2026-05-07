@@ -1,0 +1,38 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and editor state
+.env
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Model weights and download caches
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.incomplete
+*.lock
+
+# JavaScript dependencies
+node_modules/
+
+# Blockchain generated secrets/state
+prototypes/blockchain/config/password.txt
+prototypes/blockchain/config/keystore/
+prototypes/blockchain/config/nodekeys/
+prototypes/blockchain/data/*
+!prototypes/blockchain/data/.gitkeep
+
+# Logs/temp
+*.log
+tmp/
+temp/

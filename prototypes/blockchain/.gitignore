@@ -1,0 +1,14 @@
+# Generated at runtime
+config/genesis.json
+config/metadata.json
+config/*_account.json
+config/accounts/
+config/keystore/
+config/nodekeys/
+config/static-nodes.json
+config/accounts_generated.log
+data/
+results/*.csv
+plots/*.png
+__pycache__/
+

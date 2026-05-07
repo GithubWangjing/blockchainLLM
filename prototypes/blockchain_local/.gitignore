@@ -1,0 +1,17 @@
+# Node artifacts
+node_modules/
+.hardhat/
+cache/
+artifacts/
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Benchmark outputs
+results/*.csv
+plots/*.png
+
+# Misc
+.env
+

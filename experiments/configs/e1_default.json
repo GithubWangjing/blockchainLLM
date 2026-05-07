@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "simulation": {
+    "duration": 600,
+    "time_step": 1.0,
+    "block_time": 2.0,
+    "block_size": 220,
+    "consensus_delay": 1.0,
+    "base_latency_overhead": 0.25,
+    "static_shards": 4,
+    "dynamic": {
+      "min_shards": 2,
+      "max_shards": 10,
+      "scale_up_threshold": 160,
+      "scale_down_threshold": 60,
+      "grace_period": 40
+    }
+  },
+  "sweeps": {
+    "arrival_rates": [60, 120, 180, 240, 300],
+    "node_counts": [20, 40, 60, 80]
+  }
+}
+
