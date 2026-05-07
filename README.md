@@ -109,9 +109,11 @@ The committed outputs include real 50-question subset results:
 The 3B CPU latency is a local prototype measurement, not a GPU deployment
 estimate.
 
-## Server Reproduction
+## Server Reproduction From Scratch
 
-For a GPU server:
+These commands assume a Linux GPU server. They clone the repository, create the
+environment, download the MedQA JSONL file, download Qwen backbones, and run the
+Reviewer 5 backbone pipeline.
 
 ```bash
 git clone https://github.com/GithubWangjing/blockchainLLM.git
@@ -121,8 +123,75 @@ conda activate blockchain
 pip install -r requirements-llm.txt
 ```
 
-Then download models and run the real backbone commands above. Prefer GPU for
-3B or larger models.
+Download the real MedQA-USMLE 4-option JSONL file:
+
+```bash
+mkdir -p data/medqa
+wget -O data/medqa/GBaker_MedQA_USMLE_4options_test.json \
+  https://huggingface.co/datasets/GBaker/MedQA-USMLE-4-options-hf/resolve/main/test.json
+```
+
+If `wget` is unavailable:
+
+```bash
+python - <<'PY'
+from pathlib import Path
+from urllib.request import urlretrieve
+Path("data/medqa").mkdir(parents=True, exist_ok=True)
+urlretrieve(
+    "https://huggingface.co/datasets/GBaker/MedQA-USMLE-4-options-hf/resolve/main/test.json",
+    "data/medqa/GBaker_MedQA_USMLE_4options_test.json",
+)
+PY
+```
+
+Download the real Qwen backbones:
+
+```bash
+mkdir -p models
+huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct \
+  --local-dir ./models/Qwen2.5-1.5B-Instruct
+huggingface-cli download Qwen/Qwen2.5-3B-Instruct \
+  --local-dir ./models/Qwen2.5-3B-Instruct
+```
+
+Run the 50-question real backbone subset:
+
+```bash
+python -m experiments.run_medqa_backbone_comparison \
+  --quick \
+  --seed 7 \
+  --max-questions 50 \
+  --models Qwen/Qwen2.5-0.5B Qwen/Qwen2.5-1.5B-Instruct Qwen/Qwen2.5-3B-Instruct \
+  --cpu-dtype float16
+
+python -m experiments.run_medqa_error_analysis --seed 7
+python -m experiments.run_backbone_cost_scalability --seed 7
+python -m experiments.generate_reviewer5_reports --seed 7
+```
+
+Run a larger 200-question subset on a GPU server:
+
+```bash
+python -m experiments.run_medqa_backbone_comparison \
+  --seed 7 \
+  --max-questions 200 \
+  --models Qwen/Qwen2.5-1.5B-Instruct Qwen/Qwen2.5-3B-Instruct \
+  --merge-existing \
+  --cpu-dtype float16
+
+python -m experiments.run_medqa_error_analysis --seed 7
+python -m experiments.run_backbone_cost_scalability --seed 7
+python -m experiments.generate_reviewer5_reports --seed 7
+```
+
+One-command Linux helper:
+
+```bash
+bash scripts/server_run_reviewer5.sh 50
+```
+
+The argument is `max_questions`. For example, use `200` for a larger subset.
 
 ## Notes on Secrets and Large Files
 
@@ -135,4 +204,3 @@ The repository excludes:
 - Python caches
 
 Do not commit API keys or private model credentials.
-
