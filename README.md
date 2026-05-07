@@ -228,6 +228,37 @@ python -m experiments.run_backbone_cost_scalability --seed 7
 python -m experiments.generate_reviewer5_reports --seed 7
 ```
 
+## Blockchain Technical Evaluation
+
+Reviewer 5 blockchain-specific evaluation can be regenerated with:
+
+```bash
+python -m experiments.run_contract_access_control_benchmark --quick --seed 7
+python -m experiments.run_tamper_evidence_evaluation --quick --seed 7
+python -m experiments.run_consensus_scalability_simulation --quick --seed 7
+python -m experiments.generate_blockchain_technical_reports --quick --seed 7
+```
+
+Windows helper:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run_blockchain_technical_evaluation.ps1
+```
+
+Outputs include:
+
+- `results/contract_access_control_benchmark.csv`
+- `results/tamper_evidence_evaluation.csv`
+- `results/consensus_scalability_simulation.csv`
+- `reports/blockchain_technical_evaluation.md`
+- `reports/experiment_summary_v3.md`
+
+Evidence status:
+
+- Access-control latency: real Hardhat/devnet latency reused with deterministic contract semantics.
+- Tamper evidence: real SHA-256 hash verification over workflow records.
+- Consensus scalability: simulation.
+
 ## Notes on Secrets and Large Files
 
 The repository excludes:
