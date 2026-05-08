@@ -39,7 +39,7 @@ def generate_mapping():
             "output_files": "results/medqa_backbone_comparison.csv; figures/fig_backbone_accuracy_latency_tradeoff.*",
             "manuscript_location": "Main Figure 3; MedQA workflow evaluation",
             "interpretation": "Absolute accuracy is backbone-dependent; blockchain preserves predictions while adding auditability.",
-            "limitation_statement": "Larger-backbone rows are mock fallback unless replaced by real local or cloud benchmarks.",
+            "limitation_statement": "Reported backbone rows are real evaluations; unevaluated larger models should remain excluded until real predictions are available.",
         },
         {
             "reviewer5_comment": "No baseline.",
@@ -141,6 +141,10 @@ def generate_summary(seed):
     if not status.empty:
         failed_models = sorted(status[status["evaluation_status"] != "completed"]["model_name"].unique())
     overhead_trend = chain[["parameter_size", "blockchain_overhead_percent"]].to_dict("records")
+    hybrid_note = (
+        "Blockchain workflow rows reuse the same real model predictions and add measured/hybrid devnet-derived "
+        "logging overhead; correctness is intentionally unchanged across no-blockchain and blockchain workflows."
+    )
     table = base[["model_name", "parameter_size", "num_questions", "accuracy", "mean_latency_ms", "benchmark_type"]].to_csv(index=False)
     text = """# Experiment Summary V2
 
@@ -154,7 +158,7 @@ This extension adds a MedQA backbone comparison, error/invalid-output analysis, 
 
 - Real backbone evaluations included in formal manuscript outputs: `{real_models}`.
 - Not evaluated / failed models: `{failed_models}`.
-- Hybrid analyses: blockchain workflow rows for real 0.5B predictions, because logging overhead is added to fixed real predictions.
+- Hybrid analyses: {hybrid_note}
 - Exclusion rule: Only real backbone evaluations are included in the manuscript figures and tables. Mock or dry-run outputs, if any, were used solely for pipeline testing and excluded from scientific analysis.
 - Simulation/hybrid analyses: normalized cost, review flag proxies, prior DP/FL simulations, and blockchain logging overhead estimates.
 - No result should be described as clinical validation.
@@ -190,7 +194,7 @@ Invalid output, wrong answer, and review flag rates are summarized in `results/m
 
 ## Remaining Limitations for Manuscript Text
 
-- Qwen2.5-1.5B/3B/7B are listed as not evaluated when download, permissions, memory, or runtime prevented completion; they are excluded from formal figures/tables until real predictions are available.
+- Models beyond the completed Qwen2.5-1.5B/3B/7B subset, such as 14B or proprietary clinical models, remain unevaluated unless real predictions are added.
 - Clinical safety cannot be inferred from MedQA accuracy alone.
 - Hallucination mitigation requires retrieval grounding, clinician review, stronger backbones, and prospective validation.
 - Blockchain adds auditability and tamper evidence but depends on validator governance, key management, and consortium trust assumptions.
@@ -198,6 +202,7 @@ Invalid output, wrong answer, and review flag rates are summarized in `results/m
         seed=seed,
         real_models=", ".join(real_models) if real_models else "none",
         failed_models=", ".join(failed_models) if failed_models else "none",
+        hybrid_note=hybrid_note,
         table=table,
         overhead_trend=overhead_trend,
     )

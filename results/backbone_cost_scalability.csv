@@ -1,4 +1,10 @@
 model_name,parameter_size,workflow,accuracy,mean_latency_ms,normalized_inference_cost,blockchain_logging_cost,cost_per_1000_queries_normalized,audit_coverage_rate,benchmark_type,notes
-Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_only,0.36,3762.816158533096,9.0,0.0,9.0,0.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
-Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_with_blockchain_logging,0.36,3968.385765234066,9.0,18.0,27.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
-Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_with_audit_review_flag,0.36,3968.904186156393,9.0,18.0,27.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_only,0.43,437.3380206525326,9.0,0.0,9.0,0.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_with_blockchain_logging,0.43,645.8656654217116,9.0,18.0,27.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-1.5B-Instruct,1.5B,backbone_with_audit_review_flag,0.43,652.3489781239977,9.0,18.0,27.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-3B-Instruct,3B,backbone_only,0.5,229.40718507394195,18.0,0.0,18.0,0.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-3B-Instruct,3B,backbone_with_blockchain_logging,0.5,441.5316655674369,18.0,18.0,36.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-3B-Instruct,3B,backbone_with_audit_review_flag,0.5,455.3357131877115,18.0,18.0,36.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-7B-Instruct,7B,backbone_only,0.595,484.3787930905819,42.0,0.0,42.0,0.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-7B-Instruct,7B,backbone_with_blockchain_logging,0.595,708.1557939667225,42.0,18.0,60.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
+Qwen/Qwen2.5-7B-Instruct,7B,backbone_with_audit_review_flag,0.595,701.3713586905744,42.0,18.0,60.0,1.0,real,Normalized cost is used to compare relative deployment overhead across configurations.
