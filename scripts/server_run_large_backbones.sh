@@ -26,6 +26,7 @@ pip install -r requirements-llm.txt
 mkdir -p data/medqa models
 python - <<'PY'
 import os
+import subprocess
 from pathlib import Path
 from urllib.request import urlretrieve
 
@@ -33,10 +34,34 @@ target = Path("data/medqa/GBaker_MedQA_USMLE_4options_test.json")
 target.parent.mkdir(parents=True, exist_ok=True)
 if not target.exists() or target.stat().st_size == 0:
     endpoint = os.environ.get("HF_ENDPOINT", "https://huggingface.co").rstrip("/")
-    urlretrieve(
-        f"{endpoint}/datasets/GBaker/MedQA-USMLE-4-options-hf/resolve/main/test.json",
-        target,
-    )
+    try:
+        subprocess.run(
+            [
+                "hf",
+                "download",
+                "GBaker/MedQA-USMLE-4-options-hf",
+                "test.json",
+                "--repo-type",
+                "dataset",
+                "--local-dir",
+                str(target.parent),
+            ],
+            check=True,
+        )
+    except Exception as hf_exc:
+        try:
+            urlretrieve(
+                f"{endpoint}/datasets/GBaker/MedQA-USMLE-4-options-hf/resolve/main/test.json",
+                target,
+            )
+        except Exception as url_exc:
+            raise SystemExit(
+                "MedQA dataset is missing locally and could not be downloaded. "
+                "The repository normally includes data/medqa/GBaker_MedQA_USMLE_4options_test.json; "
+                "run `git checkout origin/main -- data/medqa/GBaker_MedQA_USMLE_4options_test.json` "
+                "or copy this file from another machine, then rerun the script. "
+                f"hf error: {hf_exc}; url error: {url_exc}"
+            )
 print(f"MedQA file ready: {target}")
 PY
 
