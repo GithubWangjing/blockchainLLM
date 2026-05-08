@@ -8,7 +8,7 @@ This extension adds a MedQA backbone comparison, error/invalid-output analysis, 
 
 ## Real, Hybrid, Simulation, and Mock Status
 
-- Real backbone evaluations included in formal manuscript outputs: `Qwen/Qwen2.5-0.5B, Qwen/Qwen2.5-1.5B-Instruct, Qwen/Qwen2.5-3B-Instruct`.
+- Real backbone evaluations included in formal manuscript outputs: `Qwen/Qwen2.5-1.5B-Instruct`.
 - Not evaluated / failed models: `none`.
 - Hybrid analyses: blockchain workflow rows for real 0.5B predictions, because logging overhead is added to fixed real predictions.
 - Exclusion rule: Only real backbone evaluations are included in the manuscript figures and tables. Mock or dry-run outputs, if any, were used solely for pipeline testing and excluded from scientific analysis.
@@ -18,17 +18,15 @@ This extension adds a MedQA backbone comparison, error/invalid-output analysis, 
 ## Backbone Accuracy and Latency
 
 ```csv
-model_name,parameter_size,num_questions,accuracy,mean_latency_ms,benchmark_type
-Qwen/Qwen2.5-0.5B,0.5B,50,0.2,2169.7676579956897,real
-Qwen/Qwen2.5-1.5B-Instruct,1.5B,50,0.36,8104.340814000461,real
-Qwen/Qwen2.5-3B-Instruct,3B,50,0.44,94658.07317200815,real
+model_name,parameter_size,num_questions,accuracy,mean_latency_ms,benchmark_type
+Qwen/Qwen2.5-1.5B-Instruct,1.5B,50,0.36,3762.816158533096,real
 
 ```
 
 Blockchain overhead percentages by backbone workflow:
 
 ```text
-[{'parameter_size': '0.5B', 'blockchain_overhead_percent': 39.94930931661606}, {'parameter_size': '1.5B', 'blockchain_overhead_percent': 11.170479867746169}, {'parameter_size': '3B', 'blockchain_overhead_percent': 0.8351014330592811}]
+[{'parameter_size': '1.5B', 'blockchain_overhead_percent': 5.463184966791168}]
 ```
 
 ## Error and Governance Summary

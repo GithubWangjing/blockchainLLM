@@ -9,8 +9,6 @@ Observed failure categories include invalid answer formatting, wrong answers, lo
 Summary table:
 
 ```csv
-model_name,num_questions,invalid_output_rate,wrong_answer_rate,review_flag_rate,review_precision_proxy,latency_failure_correlation,most_common_failure_type
-Qwen/Qwen2.5-0.5B,50,0.0,0.8,0.84,0.9523809523809523,-0.12552734051986766,wrong_answer
-Qwen/Qwen2.5-1.5B-Instruct,50,0.0,0.64,0.1,0.6,0.08259726334684762,wrong_answer
-Qwen/Qwen2.5-3B-Instruct,50,0.0,0.56,0.1,0.6,0.10523302981652043,wrong_answer
+model_name,num_questions,invalid_output_rate,wrong_answer_rate,review_flag_rate,review_precision_proxy,latency_failure_correlation,most_common_failure_type
+Qwen/Qwen2.5-1.5B-Instruct,50,0.0,0.64,0.1,0.6,0.015665816777376426,wrong_answer
 ```

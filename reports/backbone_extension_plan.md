@@ -2,7 +2,9 @@
 
 ## Current MedQA Status
 
-No backbone completed in this run.
+- Current completed model: `Qwen/Qwen2.5-1.5B-Instruct`.
+- Accuracy: `0.430`; mean latency: `437.3 ms`; samples: `200`.
+- Four-choice random baseline: approximately `0.25`; this result is `above` random level.
 
 ## Evaluation Policy
 
@@ -12,7 +14,7 @@ Medical QA accuracy must come from real model predictions on real MedQA samples.
 
 ## Subset Protocol
 
-- Requested maximum questions: `50`.
+- Requested maximum questions: `200`.
 - Sampling seed: `7`.
 - Sampling method: seeded sampling without replacement when more real MedQA questions are available than requested.
 
@@ -21,8 +23,9 @@ Medical QA accuracy must come from real model predictions on real MedQA samples.
 ```csv
 model_name,parameter_size,model_source,evaluation_status,failure_reason,benchmark_type
 Qwen/Qwen2.5-0.5B,0.5B,local_existing_benchmark,completed,,real_status
-Qwen/Qwen2.5-3B-Instruct,3B,local_dir,completed,,real_status
 Qwen/Qwen2.5-1.5B-Instruct,1.5B,local_dir,completed,,real_status
+Qwen/Qwen2.5-3B-Instruct,3B,local_dir,completed,,real_status
+Qwen/Qwen2.5-7B-Instruct,7B,local_dir,completed,,real_status
 
 ```
 
