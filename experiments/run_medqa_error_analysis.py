@@ -21,9 +21,20 @@ def parse_args() -> argparse.Namespace:
 def load_detail() -> pd.DataFrame:
     path = RESULTS_DIR / "medqa_backbone_detail.csv"
     if path.exists():
-        return pd.read_csv(path)
+        try:
+            return pd.read_csv(path)
+        except pd.errors.EmptyDataError as exc:
+            raise RuntimeError(
+                "results/medqa_backbone_detail.csv is empty. "
+                "Run run_medqa_backbone_comparison with a valid local MedQA JSON and at least one completed real model."
+            ) from exc
     fallback = RESULTS_DIR / "medqa_workflow_detail.csv"
-    df = pd.read_csv(fallback)
+    try:
+        df = pd.read_csv(fallback)
+    except pd.errors.EmptyDataError as exc:
+        raise RuntimeError(
+            "No non-empty MedQA detail file is available for error analysis."
+        ) from exc
     df["model_name"] = "Qwen/Qwen2.5-0.5B"
     df["invalid_output"] = 0
     return df

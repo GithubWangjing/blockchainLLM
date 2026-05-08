@@ -48,6 +48,9 @@ if not target.exists() or target.stat().st_size == 0:
             ],
             check=True,
         )
+        downloaded = target.parent / "test.json"
+        if downloaded.exists() and downloaded.stat().st_size > 0:
+            target.write_bytes(downloaded.read_bytes())
     except Exception as hf_exc:
         try:
             urlretrieve(
@@ -62,6 +65,11 @@ if not target.exists() or target.stat().st_size == 0:
                 "or copy this file from another machine, then rerun the script. "
                 f"hf error: {hf_exc}; url error: {url_exc}"
             )
+if not target.exists() or target.stat().st_size == 0:
+    raise SystemExit(
+        "MedQA dataset is still missing after download. Expected "
+        "data/medqa/GBaker_MedQA_USMLE_4options_test.json."
+    )
 print(f"MedQA file ready: {target}")
 PY
 
