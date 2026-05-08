@@ -1,4 +1,4 @@
 model_name,parameter_size,model_source,evaluation_status,failure_reason,benchmark_type
 Qwen/Qwen2.5-0.5B,0.5B,local_existing_benchmark,completed,,real_status
-Qwen/Qwen2.5-1.5B-Instruct,1.5B,local_dir,completed,,real_status
 Qwen/Qwen2.5-3B-Instruct,3B,local_dir,completed,,real_status
+Qwen/Qwen2.5-1.5B-Instruct,1.5B,local_dir,completed,,real_status
