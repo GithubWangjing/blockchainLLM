@@ -10,5 +10,7 @@ Summary table:
 
 ```csv
 model_name,num_questions,invalid_output_rate,wrong_answer_rate,review_flag_rate,review_precision_proxy,latency_failure_correlation,most_common_failure_type
-Qwen/Qwen2.5-1.5B-Instruct,50,0.0,0.64,0.1,0.6,0.015665816777376426,wrong_answer
+Qwen/Qwen2.5-1.5B-Instruct,200,0.0,0.57,0.1,0.8,0.04157104824430031,wrong_answer
+Qwen/Qwen2.5-3B-Instruct,200,0.0,0.5,0.1,0.55,0.0702996411767017,wrong_answer
+Qwen/Qwen2.5-7B-Instruct,200,0.0,0.405,0.1,0.4,0.09234266320563934,wrong_answer
 ```
