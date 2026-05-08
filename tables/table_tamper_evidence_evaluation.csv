@@ -1,6 +1,6 @@
 attack_type,num_records,tamper_detection_rate,false_negative_rate,false_positive_rate,audit_recovery_rate,verification_latency_ms,benchmark_type
-modified_offchain_data,30,1.0,0.0,0.0,1.0,0.0034933405307432017,real_hash_verification_on_workflow_records
-modified_inference_output,30,1.0,0.0,0.0,1.0,0.003130000550299883,real_hash_verification_on_workflow_records
-deleted_audit_record,30,1.0,0.0,0.0,0.0,0.0011500009956459205,real_hash_verification_on_workflow_records
-replaced_model_update,30,1.0,0.0,0.0,1.0,0.002843335581322511,real_hash_verification_on_workflow_records
-clean_record,30,0.0,0.0,0.0,1.0,0.002633337862789631,real_hash_verification_on_workflow_records
+modified_offchain_data,200,1.0,0.0,0.0,1.0,0.0030315853655338287,real_hash_verification_on_workflow_records
+modified_inference_output,200,1.0,0.0,0.0,1.0,0.003241300582885742,real_hash_verification_on_workflow_records
+deleted_audit_record,200,1.0,0.0,0.0,0.0,0.0010316446423530579,real_hash_verification_on_workflow_records
+replaced_model_update,200,1.0,0.0,0.0,1.0,0.0034902244806289673,real_hash_verification_on_workflow_records
+clean_record,200,0.0,0.0,0.0,1.0,0.002781543880701065,real_hash_verification_on_workflow_records

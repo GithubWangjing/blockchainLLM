@@ -1,8 +1,8 @@
 operation,execution_latency_ms,confirmation_latency_ms,gas_used,normalized_gas,success_rate,unauthorized_rejection_rate,audit_log_created,benchmark_type
-emergencyAccess,9.962915229866528,845.21957,74000.0,0.74,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
-grantAccess,7.813398489891322,1252.854195,52000.0,0.52,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
-logInference,9.541354419911794,1110.7578449999999,68000.0,0.68,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
-logModelUpdate,10.852172202312218,1300.1586149999998,82000.0,0.82,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
-revokeAccess,8.19052737890264,1137.277235,48000.0,0.48,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
-unauthorizedLogInference,6.876326607277659,1138.544855,31000.0,0.31,0.0,1.0,0.0,hybrid_real_devnet_latency_plus_contract_semantics
-verifyAccess,6.1028234191959045,949.010645,26000.0,0.26,1.0,0.0,0.0,hybrid_real_devnet_latency_plus_contract_semantics
+emergencyAccess,10.11111659448074,345.0,74000.0,0.74,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
+grantAccess,8.263573716163851,364.8,52000.0,0.52,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
+logInference,9.448664639521956,328.5,68000.0,0.68,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
+logModelUpdate,10.832159242641684,341.7,82000.0,0.82,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
+revokeAccess,7.892152509613911,351.6,48000.0,0.48,1.0,0.0,1.0,hybrid_real_devnet_latency_plus_contract_semantics
+unauthorizedLogInference,6.584904863056608,354.9,31000.0,0.31,0.0,1.0,0.0,hybrid_real_devnet_latency_plus_contract_semantics
+verifyAccess,6.068050016992289,315.3,26000.0,0.26,1.0,0.0,0.0,hybrid_real_devnet_latency_plus_contract_semantics
